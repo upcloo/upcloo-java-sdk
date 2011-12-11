@@ -20,7 +20,7 @@ doc.setTitle("This is my title")
 manager.index(doc);
 
 //Retrive results
-List<Base> doc = manager.get("14");
+List<Base> docs = manager.get("14");
 ```
 
 ## Requirements 
