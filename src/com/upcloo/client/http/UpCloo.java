@@ -12,9 +12,6 @@ import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import com.upcloo.client.model.Base;
-import com.upcloo.client.model.Doc;
-
 public class UpCloo implements UpClooInterface
 {
 	private String siteKey;
@@ -26,7 +23,7 @@ public class UpCloo implements UpClooInterface
 	public final String L_REPOSITORY_URL = "http://repository.upcloo.com/%s/%s/%s.xml";
 	
 	@Override
-	public boolean index(Doc model) {
+	public boolean index(com.upcloo.client.model.indexer.Doc model) {
 		String url = String.format(UPDATE_URL, getUsername());
 		
 		model.setPassword(getPassword());
@@ -63,12 +60,12 @@ public class UpCloo implements UpClooInterface
 	}
 
 	@Override
-	public List<Base> get(String id) {
+	public List<com.upcloo.client.model.getter.Doc> get(String id) {
 		return get(id, null);
 	}
 
 	@Override
-	public List<Base> get(String id, String virtualSiteKey) {
+	public List<com.upcloo.client.model.getter.Doc> get(String id, String virtualSiteKey) {
 
 		String url = String.format(REPOSITORY_URL, getSiteKey(), id);
 		
@@ -88,7 +85,7 @@ public class UpCloo implements UpClooInterface
 			throw new RuntimeException("Unable to get contents from remote host.");
 		}
 		
-		return new ArrayList<Base>();
+		return new ArrayList<com.upcloo.client.model.getter.Doc>();
 	}
 
 	public String getSiteKey() {

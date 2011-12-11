@@ -1,4 +1,4 @@
-package com.upcloo.client.model;
+package com.upcloo.client.model.indexer;
 
 import java.io.StringWriter;
 
@@ -7,18 +7,24 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlType(name = "model", propOrder = {
+	    "id",
+	    "sitekey",
+	    "password"
+	})
 @XmlRootElement(name="model")
 public class Doc {
 	private String id;
 	private String sitekey;
 	private String password;
-
+	
 	public String getId() {
 		return id;
 	}
 
-	@XmlElement(required=true)
+	@XmlElement(required=true, nillable=false)
 	public void setId(String id) {
 		this.id = id;
 	}

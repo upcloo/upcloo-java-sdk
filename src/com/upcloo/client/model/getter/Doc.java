@@ -1,10 +1,10 @@
-package com.upcloo.client.model;
+package com.upcloo.client.model.getter;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="doc")
-public class Base {
+public class Doc {
 	private String title;
 	private String summary;
 	
