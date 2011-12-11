@@ -14,7 +14,7 @@ manager.setCredential("username", "password", "sitekey");
 //Create new document or update
 Doc doc = new Doc();
 doc.setId("14");
-doc.setTitle("This is my title)
+doc.setTitle("This is my title")
 
 //Index new contents
 manager.index(doc);
