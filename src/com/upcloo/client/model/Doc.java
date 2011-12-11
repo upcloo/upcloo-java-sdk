@@ -1,5 +1,10 @@
 package com.upcloo.client.model;
 
+import java.io.StringWriter;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -34,5 +39,16 @@ public class Doc {
 	@XmlElement(required=true)
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String asXml() throws JAXBException
+	{
+		JAXBContext jaxbContext = JAXBContext.newInstance(Doc.class);
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+
+		StringWriter writer = new StringWriter();
+		jaxbMarshaller.marshal(this, writer);
+		
+		return writer.toString();
 	}
 }

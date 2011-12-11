@@ -1,7 +1,11 @@
 package com.upcloo.client;
 
+import java.util.List;
+
 import com.upcloo.client.http.UpCloo;
 import com.upcloo.client.http.UpClooInterface;
+import com.upcloo.client.model.Base;
+import com.upcloo.client.model.Doc;
 
 public class Manager {
 	
@@ -76,5 +80,25 @@ public class Manager {
 
 	public void setClient(UpClooInterface client) {
 		this.client = client;
+	}
+	
+	public boolean index(Doc model)
+	{
+		this.getClient().setUsername(getUsername());
+		this.getClient().setPassword(getPassword());
+		this.getClient().setSiteKey(getSiteKey());
+		
+		return this.getClient().index(model);
+	}
+	
+	public List<Base> get(String id)
+	{
+		return this.get(id, null);
+	}
+	
+	public List<Base> get(String id, String virtualSiteKey)
+	{
+		this.getClient().setSiteKey(getSiteKey());
+		return this.getClient().get(id, virtualSiteKey);
 	}
 }
