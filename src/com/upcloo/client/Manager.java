@@ -1,5 +1,8 @@
 package com.upcloo.client;
 
+import com.upcloo.client.http.UpCloo;
+import com.upcloo.client.http.UpClooInterface;
+
 public class Manager {
 	
 	private static Manager instance;
@@ -10,12 +13,17 @@ public class Manager {
 	
 	private String[] virtualSiteKeys;
 	
+	private UpClooInterface client;
+	
 	private Manager() {}
 	
 	public Manager getInstance()
 	{
 		if (Manager.instance == null) {
 			Manager.instance = new Manager();
+			
+			//Default use UpCloo client
+			this.setClient(new UpCloo());
 		}
 		
 		return Manager.instance;
@@ -60,5 +68,13 @@ public class Manager {
 
 	public void setVirtualSiteKeys(String[] virtualSiteKeys) {
 		this.virtualSiteKeys = virtualSiteKeys;
+	}
+
+	public UpClooInterface getClient() {
+		return client;
+	}
+
+	public void setClient(UpClooInterface client) {
+		this.client = client;
 	}
 }
