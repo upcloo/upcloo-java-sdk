@@ -28,3 +28,10 @@ List<Base> docs = manager.get("14");
 This library needs different library listed below. 
 
  * Apache HTTP Client
+ 
+Under ```lib``` folder you can see the complete dependency list.
+ 
+## Running tests
+
+If you want run tests simply using ```junit```. All tests are 
+under ```tests``` folder.
