@@ -5,7 +5,7 @@ consider this library as it is, unstable.***
 
 ## Example of usage
 
-In the follow quick example is used ```java.util.List```
+In the example below we get the singleton instance for UpCloo manager.
 
 ```java
 Manager manager = Manager.getInstance();
