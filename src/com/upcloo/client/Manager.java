@@ -17,13 +17,13 @@ public class Manager {
 	
 	private Manager() {}
 	
-	public Manager getInstance()
+	public static Manager getInstance()
 	{
 		if (Manager.instance == null) {
 			Manager.instance = new Manager();
 			
 			//Default use UpCloo client
-			this.setClient(new UpCloo());
+			Manager.instance.setClient(new UpCloo());
 		}
 		
 		return Manager.instance;
