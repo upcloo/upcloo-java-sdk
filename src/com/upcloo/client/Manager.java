@@ -9,11 +9,11 @@ public class Manager {
 	
 	private static Manager instance;
 	
-	private String username;
-	private String password;
-	private String siteKey;
+	private String username = "";
+	private String password = "";
+	private String siteKey = "";
 	
-	private String[] virtualSiteKeys;
+	private String[] virtualSiteKeys = new String[0];
 	
 	private UpClooInterface client;
 	
@@ -29,6 +29,11 @@ public class Manager {
 		}
 		
 		return Manager.instance;
+	}
+	
+	public void setCredential(String username, String siteKey, String password)
+	{
+		setCredential(username, siteKey, password, this.getVirtualSiteKeys());
 	}
 	
 	public void setCredential(String username, String siteKey, String password, String... vSiteKeys)
